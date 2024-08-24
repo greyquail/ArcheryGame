@@ -1,10 +1,19 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #87CEEB; /* Sky blue background */
 }
 
 canvas {
     display: block;
-    background-color: #ffffff;
+    background-color: #FFFFFF; /* White canvas */
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #000000;
+    font-family: Arial, sans-serif;
 }
