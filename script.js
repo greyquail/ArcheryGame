@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 const ARROW_WIDTH = 60;
 const ARROW_HEIGHT = 10;
-const ARROW_SPEED = 5;
+const ARROW_SPEED = 10;
 let arrowAngle = 0;
 let arrowPosition = { x: canvas.width / 2, y: canvas.height / 2 };
 let arrowVelocity = { x: 0, y: 0 };
@@ -18,8 +18,6 @@ function drawArrow(x, y, angle) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(angle * Math.PI / 180);
-
-    // Draw the arrow
     ctx.fillStyle = '#FF0000'; // Red arrow
     ctx.beginPath();
     ctx.moveTo(-ARROW_WIDTH / 2, -ARROW_HEIGHT / 2);
@@ -27,16 +25,6 @@ function drawArrow(x, y, angle) {
     ctx.lineTo(-ARROW_WIDTH / 2, ARROW_HEIGHT / 2);
     ctx.closePath();
     ctx.fill();
-
-    // Draw the arrowhead
-    ctx.fillStyle = '#000000'; // Black arrowhead
-    ctx.beginPath();
-    ctx.moveTo(ARROW_WIDTH / 2, 0);
-    ctx.lineTo(ARROW_WIDTH / 2 + 15, -5);
-    ctx.lineTo(ARROW_WIDTH / 2 + 15, 5);
-    ctx.closePath();
-    ctx.fill();
-
     ctx.restore();
 }
 
@@ -61,11 +49,8 @@ function updateScore(amount) {
 
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     drawArrow(arrowPosition.x, arrowPosition.y, arrowAngle);
-
     updateArrow();
-
     requestAnimationFrame(gameLoop);
 }
 
